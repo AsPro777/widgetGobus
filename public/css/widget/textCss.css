@@ -1,0 +1,53 @@
+*{box-sizing: border-box;}
+
+.gobusWidget .header
+{
+    width: 100%;
+    position: relative;
+    background-color: DarkTurquoise;
+    padding-top: 10px;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+
+.gobusWidget h3.h3-header
+{
+    text-align: center;
+    font-size:25px;
+    font-family: Lucida Console;
+    color: plum;
+}
+
+.gobusWidget h3
+{
+   text-align: center;
+    font-size:25px;
+    font-family: Lucida Console;
+    color: indigo; 
+}
+
+.gobusWidget h4
+{
+    text-align: center;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 20px;
+    color: peru;
+}
+
+.gobusWidget h4.errorInfo
+{
+    color: firebrick;
+    text-align:center;
+}
+
+.gobusWidget h4.notice
+{
+    color: darkgoldenrod;
+    text-align:center;
+}
+
+.gobusWidget .error
+{
+  background-color: #e86464!important;  
+}

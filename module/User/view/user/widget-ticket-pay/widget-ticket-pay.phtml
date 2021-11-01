@@ -1,0 +1,193 @@
+<?php
+   $title = "Покупка и бронирование билета на автобус";
+   $this->headTitle($title);
+   $this->headTitle()->setAutoEscape(false);
+   $this->headMeta()->setAutoEscape(false);
+   $this->headLink()->setAutoEscape(false);
+   $this->headScript()->setAutoEscape(false);
+   $this->inlineScript()->setAutoEscape(false);
+?>
+
+<?=$this->inlineScript()
+        ->appendFile($this->basePath('js/w/bus-view.js'.'?'.random_int(11111, 99999)))
+        ->appendFile($this->basePath('js/widget/widget-ticket-pay-add.js'.'?'.random_int(11111, 99999)))
+        /*->appendFile($this->basePath('js/jquery.mask.js'.'?'.random_int(11111, 99999)))*/
+
+        ->appendFile($this->basePath('js/phone-mask.js'.'?'.random_int(11111, 99999)))
+        ->appendFile($this->basePath('js/utils.js'.'?'.random_int(11111, 99999)))
+        ->appendFile($this->basePath('js/widget/widget-ticket-pay.js'.'?'.random_int(11111, 99999)))
+        ;
+?>
+
+<? $this->headLink()
+            ->appendStylesheet($this->basePath('css/w/bus-view-pub.css'.'?'.random_int(11111, 99999)))
+?>
+
+<?php
+  if($getCssFile==FALSE)$this->headLink()->appendStylesheet($this->basePath('css/widget/widget.css'.'?'.random_int(11111, 99999)));
+  else $this->headLink()->appendStylesheet($cssParam.'?'.random_int(11111, 99999));
+
+        echo <<<JS
+         <script type="text/javascript">
+             var reisId='$id_reis';
+             var dispatchStationIdFind='$dispatchStationIdFind';
+             var arrivalStationIdFind='$arrivalStationIdFind';
+             var errorInfo='$errorInfo';
+             var emailHelp='support@gobus';
+             var telHelp1='+7 (920) 229-66-55';
+             var telHelp2='+7 (920) 211-50-03';
+         </script>
+JS;
+?>
+
+<?
+if(!empty($user))/*empty(false) будет true; empty(true) будет false; empty('') будет true. При загрузки 2-й страницы сработает контроллер WidgetTicketPayController и его метод WidgetTicketPayAction в котором сформируется объект Udata(если пользов не авторизовался-а в виджете он никогда не будет этого делать-то udata=false(это будет всегда когда модель данная формируется) соответственно $user тут всегда будет false)*/
+echo <<<JS
+<script type="text/javascript">
+curr_usr={
+    phone: '{$user['phone']}',
+    email: '{$user['email']}',
+    f: '{$user['f']}',
+    i: '{$user['i']}',
+    o: '{$user['o']}',
+    sex: '{$user['sex']}',
+    dr: '{$user['dr']}',
+    grazhd: '{$user['grazhd']}',
+    grazhd_txt: '{$user['grazhd_txt']}',
+    doc: '{$user['doc']}',
+    doc_txt: '{$user['doc_txt']}',
+    doc_num: '{$user['doc_num']}',
+    doc_mask: '{$user['doc_mask']}',
+    doc_example: '{$user['doc_example']}',
+};
+</script>
+JS;
+else
+echo <<<JS
+<script type="text/javascript">
+curr_usr=false;
+</script>
+JS;
+?>
+
+        <div class="header search">
+            <a class="menuButtons returnHomeTwoPage" title="На главную">
+                <!--<i class="fa fa-home"></i>--><div class="return-ticket-name">На главную</div>
+            </a>
+            <span class="del">|</span>
+            <a class="menuButtons returnTicketToUserTwoPage" href="/widget-ticket-return/<?=$path?>">
+                <!--<i class="fa fa-usd" title="Возврат билетов"></i>--><div class="return-home">Возврат билетов</div>
+            </a>
+            <h3 class="h3-header"><?=$title?></h3>
+            <span class="configPhone">
+            </span>
+
+        </div>
+
+        <div id="help">
+            <div class="button close"><i class="fa fa-close"></i></div>
+            <h4>Как оформить билет?</h4>
+            <ol>
+            <li>
+            Перед оформлением внимательно ознакомьтесь с предоставленной информацией о поездке!<br>
+            Остановки посадки и высадки в списке остановок выделены зеленым цветом.<br>
+            Убедитесь, что дата, время, остановки посадки и высадки Вас устраивают и Вы готовы приобрести билеты.<br>
+            </li>
+
+            <li>
+            Отметьте понравившиеся свободные места в автобусе. <br>
+            Разметка мест:
+            <span class="empty-place-color">Свободно</span>
+            <span class="sold-place-color">Продано</span>
+            <span class="reserved-place-color">Место забронировано</span>
+            <span class="self-reserved-color">Зарезервировано Вами на 5 мин.</span>
+            <span class="reserved-color">Зарезервировано за кем-то на 5 мин.</span>
+            </li>
+
+            <li>
+            Укажите Ваши телефон и адрес электронной почты. <br>
+            Телефон нужен для экстренной связи с Вами.<br>
+            На электронную почту будет отправлено письмо для подтверждения заявки.<br>
+            <b>Если Вы уже вошли в свою учетную запись, то эти значения введутся автоматически.</b>
+            </li>
+
+            <li>
+            Введите информацию о пассажире. <br>
+            Вы можете добавить или удалить пассажиров, нажимая кнопки <i class="fa fa-plus"></i> и <i class="fa fa-close" ></i>.<br>
+            Если Вы уже вошли в свою учетную запись, то данные о первом пассажире введутся автоматически.
+            </li>
+
+            <li>
+            Когда все будет готово, нажмите кнопку <span id="ready">"Готово"</span>. <br>
+            </li>
+
+            <li>
+            Проверьте свой почтовый ящик <span id="help-info-email"></span> и ознакомьтесь с полученным письмом.<br>
+            Там Вы найдете инструкции по подтверждению заказа, его оплате и прочим дальнейшим действиям.
+            </li>
+            </ol>
+            <div>
+              <i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp; Приятных покупок и спасибо, что Вы с нами!
+            </div>
+
+        </div>
+
+        <div class="row" id="form" style="display: none;">
+           <table class="table search-result-table">
+
+           </table>
+        </div>
+
+
+        <div class="row" id="welcomina">
+            <div>
+                <table class="table" width="100%">
+                    <tfoot>
+                        <tr>
+                            <th>
+                                <h4 class="center">Внимание! Вы должны произвести оплату в течение 30 минут!</h4>
+
+                                <p>Неоплаченный заказ будет автоматически отменен через 30 минут!</p>
+                                <p>Инструкции и ссылки для действий с заказом отправлены на адрес <span class="email"></span>!</p>
+
+                                <p class="if-not-logged">Для упрощения процедуры повторной покупки билетов мы рекомендуем Вам пройти несложную регистрацию и настроить свою учетную запись.
+                                    <br>
+                                    После этого Ваши данные будут вводиться в оформляемые билеты автоматически!
+                                    <br>
+                                    Также Вы сможете отслеживать историю своих покупок и вести диалог с техподдержкой.
+                                </p>
+
+                                <p class="if-logged">Историю своих заказов Вы можете отслеживать в кабинете Гоубас!</p>
+                                <p class="thanks"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp; Спасибо Вам за то, что Вы используете Гоубас!</p>
+
+                                <div class="pay">
+                                <a href="#" class="custom-button credit-card"><span data-hover="Оплатить...">Перейти к оплате ...</span></a>
+                                </div>
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <div class="passenger-tables">
+           <table class="tableTicketPay">
+
+           </table>
+           <table class="passenger">
+
+           </table>
+        </div>
+        <div class="row" id="iWill-text">
+            <div class="oferta-obrabotka-pd">
+                <?= file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/../doc_tpl/oferta-obrabotka-pd.html")?>
+            </div>
+            <div class="oferta-polzovatelskoe-soglashenie">
+                <?= file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/../doc_tpl/oferta-polzovatelskoe-soglashenie.html")?>
+            </div>
+            <div class="oferta-politika-konfidencialnosti">
+                <?= file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/../doc_tpl/oferta-politika-konfidencialnosti.html")?>
+            </div>
+        </div>
+
+

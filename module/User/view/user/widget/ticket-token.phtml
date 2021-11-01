@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<?php
+  $this->headTitle()->setAutoEscape(false);
+  $this->headMeta()->setAutoEscape(false);
+  $this->headLink()->setAutoEscape(false);
+  $this->headScript()->setAutoEscape(false);
+  $this->inlineScript()->setAutoEscape(false);
+  $dataTime= explode('T' , $dat);
+  $dat= explode('-', $dataTime[0]);
+  $time_= explode(':', $dataTime[1]);
+  $titleH = "Онлайн-заказ № $order_id от $dat[2].$dat[1].$dat[0] $time_[0]:$time_[1]";
+  $title = "Онлайн-заказ №&nbsp;$order_id от&nbsp;$dat[2].$dat[1].$dat[0] $time_[0]:$time_[1]";
+  $this->headTitle($titleH);
+  $this->publicMenu()->setActiveItemId('home');
+  $this->publicMenu()->setBreadCrumbs('', 'Список билетов');
+
+
+  if($getCssFile==FALSE)$this->headLink()->appendStylesheet($this->basePath('css/widget/widget.css'.'?'.random_int(11111, 99999)));
+  else $this->headLink()->appendStylesheet($getCssFile.'?'.random_int(11111, 99999));
+?>
+  <?=$this->inlineScript()
+    ->appendFile($this->basePath( $this->basePath('js/widget/widget-token.js'.'?'.random_int(11111, 99999)) ))
+    ->appendFile($this->basePath("js/utils.js".'?'.random_int(11111, 99999)) )
+    ->appendFile('https://3dsec.sberbank.ru/demopayment/docsite/assets/js/ipay.js');?>
+  <?echo <<<JS
+         <script type="text/javascript">
+             var errorInfo='$errorInfo';
+             var emailHelp='support@gobus.online';
+             var telHelp1='+7 (920) 229-66-55';
+             var telHelp2='+7 (920) 211-50-03';
+         </script>
+JS;
+?>
+
+<?echo <<<JS
+   <script type="text/javascript">
+      var orderId='$order_id';
+      var reisId='$reis_id';
+      var path='$path';
+   </script>
+JS;
+?>
+
+     <div class="header search">
+         <!--<a class="menuButtons returnHome" title="На главную">
+            <i class="fa fa-home"></i>
+         </a>-->
+          <h3 class="h3-header">&nbsp;<?=$title?></h3>
+          <a class="returnHome" title="Возврат билетов">
+
+             <div class="return-home"> На главную</div>
+
+           </a>
+         <span class="configPhone">
+         </span>
+
+     </div>
+
+     <div class="passenger-tables" id="form">
+             <table class="table tableTicketPay">
+                 <tfoot hidden="true">
+                     <tr>
+                         <th>
+                             <h4 class="notice">В запрошенном списке нет билетов!</h4>
+                         </th>
+                     </tr>
+                 </tfoot>
+                 <tbody>
+                     <tr>
+                         <td>
+                         </td>
+                     </tr>
+                 </tbody>
+             </table>
+     </div>
+

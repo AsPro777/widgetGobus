@@ -1,0 +1,89 @@
+
+
+<?php
+    $this->headTitle()->setAutoEscape(false);
+    $this->headMeta()->setAutoEscape(false);
+    $this->headLink()->setAutoEscape(false);
+    $this->headScript()->setAutoEscape(false);
+    $this->inlineScript()->setAutoEscape(false);
+$title = "Поиск и продажа билетов на&nbsp;автобусы по&nbsp;России&nbsp;и&nbsp;СНГ";
+
+   $rnd = '?'.random_int(11111, 99999);
+   $fp="widget";
+
+   echo <<<JS
+   <script type="text/javascript">
+      var errorInfo='$errorInfo';
+      var emailHelp='support@gobus.online';
+      var telHelp1='+7 (920) 229-66-55';
+      var telHelp2='+7 (920) 211-50-03';
+   </script>
+JS;
+?>
+
+<?=$this->inlineScript()
+  ->appendFile($this->basePath("js/utils.js".$rnd) )
+  ->appendFile($this->basePath("js/widget/$fp.js".$rnd) );?>
+
+<?php
+
+ /*if(isset($_SERVER['HTTP_COOKIE'])){
+       $ref= explode(';', $_SERVER['HTTP_COOKIE']);
+       foreach ($ref as $value) {
+           $refer=explode('=',$value);
+           if(trim($refer[0])=='PHPPARENTURL'){
+               $referer= explode('/',$refer[1]);
+               $css= $referer[0].'//'.$referer[2].'/gobus_widget.css';
+               $getCssFile=@file_get_contents($css);
+               break;
+           }
+       }
+    }
+    else{
+        $css='';
+        $getCssFile='';
+    }*/
+
+  if($getCssFile=='')$this->headLink()->appendStylesheet($this->basePath('css/widget/widget.css'.'?'.random_int(11111, 99999)));
+  else $this->headLink()->appendStylesheet($cssParam.'?'.random_int(11111, 99999));?>
+<!--Если css-файл Gobus-widget.css существует в корневой папке то сработает он. Если же его там нет-то сработает стандартный css-файл  -->
+
+       <div class="header search">
+           <!--<a class="menuButtons returnTicketToUser" title="Возврат билетов">
+                <i class="fa fa-usd"></i>
+           </a>-->
+
+           <h3 class="h3-header"><?=$title?></h3>
+
+           <a class="returnTicketToUser" title="Возврат билетов">
+
+             <div class="return-ticket-name"> Возврат билетов</div>
+
+           </a>
+
+           <span class="configPhone">   </span>
+           <?=$this->partial('user/widget/widget_search_form');   ?>
+
+       </div>
+   <!--  <a class="returnTicketToUser" title="Возврат билетов">
+         <div class="return-ticket">
+             <div class="return-ticket-name"> Возврат билетов
+             </div>
+         </div>
+     </a>-->
+        <div class="search-result-div-widget"> </div>
+              <table class="table search-result-table-widget main-search-result-widget">
+
+                    <tbody class="tbody-widget">
+
+                    </tbody>
+
+                    <tfoot id="step1-widget">
+                        <tr>
+                            <th colspan="5"><h4 class="notice">Ничего подходящего не найдено...</h4></th>
+                        </tr>
+                    </tfoot>
+                </table>
+
+
+

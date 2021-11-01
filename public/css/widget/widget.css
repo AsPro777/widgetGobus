@@ -1,0 +1,1888 @@
+* {
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+ html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+/*свойства, применяемые для всех страниц*/
+ .gobusWidgetBody {
+     padding: 0;
+     margin: 4px;
+     min-width: 260px;
+     line-height: 1.2;
+     color: #333;
+     font-size: 15px;
+     background: #fff;
+     font-family: arial, sans-serif;
+
+}
+ @media (min-width:480px) {
+     .gobusWidgetBody {
+         /*margin: 8px;*/
+         margin-top: -20px;
+         
+    }
+}
+ .gobusWidget input, .gobusWidget button, .gobusWidget select {    
+     font-family: arial, sans-serif;
+     outline: 0 none;
+}
+.gobusWidget input, .gobusWidget select {	font-size: 14px;  line-height: 1.2;}
+.gobusWidget input::-moz-placeholder {    color: #666;  opacity:1;   }
+.gobusWidget input::-webkit-input-placeholder { color: #666; }
+.gobusWidget input:-ms-input-placeholder { color: #666; }
+.gobusWidget input::-ms-input-placeholder { color: #666; }
+.gobusWidget input::placeholder { color: #666; }
+ 
+ .gobusWidget .header {
+     width: 100%;
+     position: relative;
+     background-color: steelblue;
+     /*padding-top: 10px;*/
+     padding-bottom: 6px;
+     margin-bottom: 15px;
+     -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+     border-radius: 3px;
+}
+ li.form-error-msg {
+     list-style: none;
+     color: #dc3545;
+     text-transform: uppercase;
+}
+.gobusWidget span[name="infoLabel-phoneMask5"]  {
+    font-size: .85em;
+    position: relative;
+    left: 4px;
+    color: dimgray;
+}
+
+.gobusWidget a.returnTicketToUser , a.returnHome {
+    float: left;
+    margin-left: 10px;
+    margin-top: -35px;
+    text-decoration: none;
+    
+}
+
+.gobusWidget a.returnHomeTwoPage{
+    font-size: 40px;
+    cursor: pointer;
+    color: lightsteelblue;
+    float: left;
+    padding-top: 5px;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+.gobusWidget span.del{
+    float: left;
+    margin-left: 12px;
+    color: white;
+}
+
+.gobusWidget a.returnTicketToUserTwoPage {
+    /*float: right;*/
+    margin-left: 15px;
+   /* margin-top: 8px;*/
+    text-decoration: none;  
+}
+
+ .gobusWidget h3 {
+     text-align: center;
+     /*font-size:22px;*/
+     font-size: 15px;
+     font-family: "Verdana", arial, sans-serif;
+     color: black;
+}
+ .gobusWidget h3.h3-header {
+     color: AliceBlue;
+     text-transform: uppercase;
+     margin: 25px 90px 15px;
+     padding-top: 5px;
+}
+
+.gobusWidget div[aria-describedby="dialog-error-info"]{
+     position: fixed;
+}
+
+ .gobusWidget h4 {
+     text-align: center;
+     font-weight: bold;
+     font-size: 1.5em;
+     color: seagreen;
+     margin: 15px 0 25px;
+}
+ .gobusWidget h4.errorInfo {
+     color: firebrick;
+     text-align:center;
+}
+ .gobusWidget h4.notice {
+     color: #333;
+     text-align:center;
+}
+ .gobusWidget .error {
+     background-color: #fba490 !important;
+}
+ .gobusWidget a.home {
+     font-size: 45px;
+     color: lightsteelblue;
+     bottom: 25px;
+     left: 25px;
+     position: absolute;
+     cursor: pointer;
+}
+ .gobusWidget a.returnTicket {
+     font-size: 40px;
+     cursor: pointer;
+     position: absolute;
+     color: lightsteelblue;
+     float: left;
+     padding: 20px;
+}
+ .gobusWidget span.configPhone {
+     color: lightsteelblue;
+     font-size: 15px;
+     margin: 0 10px;
+     position: absolute;
+     margin-top: -13px;
+}
+.gobusWidget span.configPhone a {
+	text-decoration: none;
+	color: inherit !important;
+}
+/*форма возврата билетов*/
+
+ .gobusWidget .returnInfo ul {
+	margin: 20px 0;
+	padding: 0 0 0 30px;
+}
+ .gobusWidget .returnInfo ul > li {
+	position: relative;
+	margin-bottom: 5px;
+	list-style: none;
+}
+ .gobusWidget .returnInfo ul > li:before {
+	border-radius: 50%;
+	position: absolute;
+	left: -15px;
+	top: 7px;
+	content: "";
+	background: seagreen;
+	width: 4px;
+	height: 4px;
+}
+
+.gobusWidget div.returnInfo{
+    margin-right: 15px;
+}
+
+ .gobusWidget .electroReturn {
+     text-align: center;
+     font-size: 1.4em;
+     color: seagreen;
+}
+ .gobusWidget #ticket-return-form {
+	text-align: center;
+}
+ .gobusWidget #ticket-return-form .dataTicket {
+     font-weight: 700;
+     font-size: 1.2em;
+     color: seagreen;
+     position: relative;     
+     margin-bottom: 10px;
+     margin-top: 40px;
+}
+ .gobusWidget #ticket-return-form input[name=id_ticket], .gobusWidget #ticket-return-form input[name=doc_num] {
+     width: auto;
+     height: 26px;
+     border: 1px solid #ddd;
+     -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+     border-radius: 5px;
+}
+ .gobusWidget #ticket-return-form .form-group {
+     display: inline-block;
+     margin: 10px 0;     
+}
+.gobusWidget #ticket-return-form .form-group.form-captcha {
+	margin: 10px -25px;
+}
+ .gobusWidget #ticket-return-form ul {
+	padding: 0 15px;
+}
+.gobusWidget #ticket-return-form .form-group label {
+	margin-bottom: 5px;
+	display: block;
+}
+.gobusWidget #ticket-return-form .g-recaptcha > div {
+	margin: 0 auto;
+}
+.gobusWidget input#submit {   
+     display: inline-block;    
+     border: 0 none;
+     padding: 8px 15px;
+     font-size: 15px;
+     -webkit-border-radius: 25px;
+     -moz-border-radius: 25px;
+     border-radius: 25px;
+     text-align: center;
+     width: 170px;
+     background: seagreen;
+     color:#fff;
+     cursor: pointer;
+     white-space: nowrap;
+      -webkit-transition: all 0.3s ease;
+     -moz-transition: all 0.3s ease;
+     -ms-transition: all 0.3s ease;
+     -o-transition: all 0.3s ease;
+     transition: all 0.3s ease;
+     box-shadow: none;
+
+}
+ .gobusWidget input#submit:hover {
+     background-color: #1cac1c;     
+}
+/*кнопки "На главную" и "Возврат билета"*/
+ .gobusWidget a.menuButtons {
+     font-size: 40px;
+     cursor: pointer;
+     color: lightsteelblue;
+     float: left;
+     /*padding-left: 10px;*/
+     padding-top: 5px;
+}
+
+/*индикатор загрузки*/
+ .gobusWidget #load-indicator {
+     position: fixed;
+     width: 100%;
+     height:100%;
+     top: 0;
+     left: 0;
+     background: rgba(0,0,0,0.5);
+     z-index: 10000;
+}
+ .gobusWidget #load-indicator:after {
+     content: '';
+     position: absolute;
+     width: 64px;
+     height: 64px;
+     left: 50%;
+     top: 50%;
+     margin: -32px 0 0 -32px;
+     background: url(/img/loader_big.gif);
+}
+/*оформление окон диалога*/
+ .gobusWidget .ui-widget-content, .ui-dialog .ui-dialog-content {
+     background: aliceblue;
+}
+.gobusWidget  a.ui-button:active, .gobusWidget .ui-button:active {
+	border: 1px solid steelblue;
+	background: steelblue;
+}
+.gobusWidget .ui-dialog { max-width: 100%;}
+.gobusWidget .ui-widget-header {
+     background: steelblue; color: #fff;
+}
+.ui-dialog .ui-dialog-content ol {
+	padding-left: 20px;
+}
+ .gobusWidget div#form {
+     display: block;
+     background-color: whitesmoke;
+}
+ .gobusWidget .error-passenger-tables {
+     background-color: white;
+}
+ .gobusWidget .error-search-result-table {
+     margin: auto;
+}
+/*диалоговое окно, появляющееся в случае ошибки, информация в нем, а также информация об ошибках, предупреждениях, сообщения на самой странице, если что-то пошло не так или как ответ на действия*/
+ .gobusWidget div.reis-not-found , .ui-dialog div.reis-not-found {
+     max-width: 120px;
+     min-width: 120px;
+     width: 120px;
+     margin-top: 30px;
+}
+ .gobusWidget div.reis-not-found-info , .ui-dialog div.reis-not-found-info {
+     text-align: center;
+}
+ .gobusWidget table.error-info-table , .ui-dialog table.error-info-table {
+     border: 1px solid lightgray;
+     font-weight: normal;
+     border-collapse: collapse;
+     width: 100%;
+     font-size: 11px;
+     color: slategray;
+}
+ .gobusWidget table.error-info-table td , .ui-dialog table.error-info-table td {
+     border: 1px solid lightgray;
+     padding: 2px;
+}
+ .gobusWidget table.error-info-table td.td-error-info , .ui-dialog table.error-info-table td.td-error-info {
+     text-align: left;
+}
+ .gobusWidget .ui-dialog p:first-child {
+     font-weight: bold;
+     text-align: center;
+}
+ .gobusWidget .ui-dialog table.error-info-table td#td-msg-error-info {
+     text-align: center;
+}
+ .gobusWidget p.p-error-info , .ui-dialog p.p-error-info {
+     font-weight: normal;
+     font-size: 11px;
+     color: slategray;
+     margin-top: 30px;
+     text-align: center;
+}
+ .gobusWidget .mobile-only {
+     display: none !important;
+}
+ @media (max-width:770px) {
+     .gobusWidget h3 {
+         font-size: 15px;
+         padding-left: 20px;
+    }
+     .gobusWidget span.configPhone {
+         display: block;
+         text-align: center;
+         margin-bottom: 10px;
+    }
+     .gobusWidget .header {
+         padding-bottom: 6px;
+    }
+}
+ @media (max-width:479px) {
+     .gobusWidgetBody {
+         font-size: 14px;
+    }
+     .gobusWidget h3 {
+         font-size: 15px;
+    }
+     .gobusWidget h3.h3-header {
+         padding-top: 15px;
+         /*margin: 10px 70px 15px;*/
+    }
+
+     .gobusWidget a.menuButtons {
+         font-size: 30px;
+         padding-top: 0;
+    }
+}
+ @media (max-width:369px) {
+     .gobusWidget span.configPhone {
+         text-align: right;
+    }
+     .gobusWidget h3.h3-header {
+         margin-right: 10px;
+         text-align: right;
+         padding-top: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+/*стр выбора маршрута*/
+/*стр1*/
+/*форма поиска*/
+ .gobusWidget form.global-search-form {
+     display: table;
+     width: 100%;
+     position: relative;
+     top: 10px;
+}
+ .gobusWidget input.search-from, .gobusWidget input.search-to {
+     text-align: center;
+}
+ .gobusWidget div.condensed.search-field {
+     width: calc( ( 100% - 50px - 50px - 150px ) / 2 );
+}
+ .gobusWidget .col-12 {
+     float: left;
+     position: relative;
+}
+ .gobusWidget div.condensed {
+     padding: 0;
+    /* margin: 15px 0 0;*/
+}
+ .gobusWidget div.condensed.small-button {
+     width: 50px;
+}
+ .gobusWidget div.condensed.calendar-field {
+     width: 150px;
+}
+ .gobusWidget .form-control , .gobusWidget .form-calendar {
+     display: block;
+     width: 100%;
+}
+ .gobusWidget .custom-form input[type="text"] {
+     margin: 0;
+     height: 42px;
+     padding: 6px 20px 5px 10px;
+     outline: 0 none !important;
+}
+ .gobusWidget input.icon-calendar + span:before {
+     content: "\f073";
+     font-family: FontAwesome;
+     font-size: 15px;
+     cursor: pointer;
+     position: absolute;
+     right: 10px;
+     top: 5px;
+     color: #23415a;
+}
+ .gobusWidget form.global-search-form input[class*="icon-"] + span {
+     content: "";
+     font-family: FontAwesome;
+     font-size: 16px;
+     cursor: pointer;
+     position: absolute;
+     right: 5px;
+     top: 5px;
+}
+ .gobusWidget form.global-search-form input[class*="icon-"], 
+ .gobusWidget form.global-search-form .reverse-button , 
+ .gobusWidget form.global-search-form .search-trip-button {
+     -webkit-transition: opacity 0.3s ease;
+     -moz-transition: opacity 0.3s ease;
+     -ms-transition: opacity 0.3s ease;
+     -o-transition: opacity 0.3s ease;
+     transition: opacity 0.3s ease;
+}
+ .gobusWidget form.global-search-form input[class*="icon-"] {
+     opacity: 0.5;
+     font-size: 18px !important;
+     border: 1px solid lightskyblue;
+     background-color: #fff;
+}
+ .gobusWidget form.global-search-form input[class*="icon-"]:focus {
+     opacity: 0.8;
+}
+ .gobusWidget form.global-search-form input.icon-close + span::before {
+     content: "\2715";
+}
+ .gobusWidget form.global-search-form span.geocode {
+     font-size: .8em;
+     color: lightsteelblue;
+     display: inline-block;
+     padding: 6px 0 15px 10px;
+}
+ .gobusWidget form.global-search-form span.geocode.warning {
+     color: #ff8888;
+}
+ .gobusWidget form.global-search-form .reverse-button , .gobusWidget form.global-search-form .search-trip-button {
+     border: 1px solid lightskyblue !important;
+     color:black !important;
+     box-shadow: none !important;
+     height: 42px !important;
+     font-size: 13px !important;
+     transition: .2s !important;
+     width: 100%;
+     opacity: 0.8;
+     cursor: pointer;
+     background-color: #fff;
+     padding: 5px;
+     outline: 0 none !important;
+}
+ .gobusWidget form.global-search-form .reverse-button:hover , .gobusWidget form.global-search-form .search-trip-button:hover {
+     opacity:.95;
+}
+/*шапка таблицы с рейсами*/
+ .gobusWidget div.search-result-div-widget {
+     -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+     border-radius: 3px;
+     background-color: gainsboro;
+     font-size: 20px;
+     margin-top: -15px;
+}
+ .gobusWidget div.search-result-div-widget > div {
+     float: left;
+     text-align: left;
+     padding-top: 15px;
+     padding-left: 17px;
+}
+ .gobusWidget div.dispatchDiv {
+     width: 31%;
+}
+ .gobusWidget div.arrivalDiv {
+     width: 24%;
+}
+ .gobusWidget div.tripDiv {
+     width: 38%;
+}
+ .gobusWidget div.priceDiv {
+     width: 4%;
+}
+/*таблица рейсов*/
+ .gobusWidget table.search-result-table-widget {
+     width: 100%;
+     border-spacing : 0px 10px;
+}
+ .gobusWidget .search-result-table-widget > thead > tr, .gobusWidget .search-result-table-widget > tbody > tr {
+     border: 10px solid white;
+     padding: 5px;
+}
+ .gobusWidget table.search-result-table-widget td.dispatchTd {
+     width: 31%;
+     -webkit-border-radius: 3px 0 0 3px;
+     -moz-border-radius: 3px 0 0 3px;
+     border-radius: 3px 0 0 3px;
+}
+ .gobusWidget table.search-result-table-widget td.arrivalTd {
+     width: 24%;
+}
+ .gobusWidget table.search-result-table-widget td.tripTd {
+     width: 36%;
+}
+ .gobusWidget table.search-result-table-widget td.priceTd {
+     width: 9%;
+     -webkit-border-radius: 0 3px 3px 0;
+     -moz-border-radius: 0 3px 3px 0;
+     border-radius: 0 3px 3px 0;
+}
+ .gobusWidget table.search-result-table-widget td {
+     padding: 10px;
+     background-color: gainsboro;
+}
+ .gobusWidget tfoot.step1-widget {
+     background-color: gainsboro;
+}
+ .gobusWidget .tbody-widget > tr > td > div.dispatch_time, .gobusWidget .tbody-widget > tr > td > div.arrival_time {
+     font-family : "Verdana", arial, sans-serif;
+     font-size: 18px;
+     color: #4682b4;
+}
+ .gobusWidget .tbody-widget > tr > td > div.dispatch_date, .gobusWidget .tbody-widget > tr > td > div.arrival_date {
+     font-weight: 700;
+}
+ .gobusWidget .tbody-widget > tr > td > div.dispatch_station, .gobusWidget .tbody-widget > tr > td > div.arrival_station {
+     font-size: 1.13em;
+}
+ .gobusWidget .tbody-widget > tr > td > div.route {
+     font-size: 1.13em;
+     font-weight: bold;
+     color: seagreen;
+}
+ .gobusWidget .tbody-widget > tr > td > div.route_discription {
+     margin-top: 5px;
+}
+ .gobusWidget .tbody-widget > tr > td > div.time_route {
+     font-weight: 700;
+     font-size: .9em;
+     margin-top: 5px;
+}
+ .gobusWidget .tbody-widget > tr > td > div.price {
+     font-family : "Verdana", arial, sans-serif;
+     font-size: 20px;
+     text-align: center;
+     margin-bottom: 10px;
+}
+ .gobusWidget table.search-result-table-widget div.buy-button , .gobusWidget div.reis-not-found , .ui-dialog div.reis-not-found, .gobusWidget table.search-result-table-widget a.ticket-pay-buy {
+     -webkit-transition: all 0.3s ease;
+     -moz-transition: all 0.3s ease;
+     -ms-transition: all 0.3s ease;
+     -o-transition: all 0.3s ease;
+     transition: all 0.3s ease;
+}
+ .gobusWidget table.search-result-table-widget div.buy-button , .gobusWidget div.reis-not-found , .ui-dialog div.reis-not-found, .gobusWidget div.return-ticket {
+     margin-bottom: 10px;
+     display: inline-block;
+     float: none !important;
+     border: 2px solid;
+     padding: 5px 5px 6px;
+     -webkit-border-radius: 25px;
+     -moz-border-radius: 25px;
+     border-radius: 25px;
+     text-align: center;
+     max-width: 130px;
+     min-width: 130px;
+     width: 130px;
+     background-color: seagreen;
+     cursor: pointer;
+     color: seagreen;
+     opacity: 1;
+}
+ .gobusWidget table.search-result-table-widget div.buy-button:hover , .gobusWidget div.reis-not-found:hover , .ui-dialog div.reis-not-found:hover {
+     background-color: #1cac1c;
+     border-color:#1cac1c;
+}
+/*кнопка Купить*/
+ .gobusWidget table.search-result-table-widget div.buy-button-name {
+     font-size: 15px;
+     color: white;
+     
+}
+
+.gobusWidget div.return-ticket-name , div.return-home {
+    font-size: 13px;
+     color: white;
+     cursor: pointer;
+}
+
+ .gobusWidget table.search-result-table-widget a.ticket-pay-buy-button {
+     font-size: 15px;
+     font-family : "Verdana", arial, sans-serif;
+}
+ .gobusWidget table.search-result-table-widget a.ticket-pay-buy 
+/*ссылка на стр1 на каждой строке Москва-Воронеж 22:00*/
+ {
+     font-size: 15px;
+     font-family : "Verdana", arial, sans-serif;
+     color: seagreen;
+}
+ .gobusWidget table.search-result-table-widget a.ticket-pay-buy:hover {
+     color: #1cac1c;
+}
+/*календарь*/
+ .gobusWidget .ui-datepicker .ui-widget-header {
+     background: #a3c1da;
+}
+ .gobusWidget .ui-datepicker .ui-datepicker-prev, .gobusWidget .ui-datepicker .ui-datepicker-next {
+     top: 3px;
+     border: 0 none;
+     cursor: pointer;
+}
+ .gobusWidget .ui-datepicker .ui-state-active {
+     border: 1px solid #4682b4;
+     background: #4682b4;
+     color: #fff;
+}
+ .gobusWidget .ui-datepicker td.show-date-min-cost[title]:after {
+     font-size: 9px;
+     cursor: pointer;
+     line-height: 22px ;
+     width: 100%;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     content: attr(title);
+     color: #777777;
+     display: block;
+     height: 1rem;
+     margin-top: -1rem;
+     text-align: right;
+     padding: 0px 2px;
+}
+ .gobusWidget .ui-datepicker td.ui-datepicker-current-day.show-date-min-cost[title]:after {
+     color: #fff;
+}
+
+ .gobusWidget .calendar-field #detail-spinner {
+     top: 40%;
+}
+ .gobusWidget .ui-datepicker td.show-date-min-cost span, .ui-datepicker td.show-date-min-cost a {
+     padding-bottom: 7px;
+}
+ .gobusWidget #ui-datepicker-div {
+     background: #ccc;
+}
+ .gobusWidget .calendar-field #detail-spinner {
+     right: 32px;
+     position: absolute;
+}
+
+ .gobusWidget .ui-menu li.ui-menu-item div:first-child {
+     font-weight:bold;
+     margin-bottom: -4px;
+}
+ .gobusWidget .ui-menu li.ui-menu-item div:last-child {
+     color:dimgray;
+}
+ .gobusWidget .ui-menu .ui-menu-item-wrapper, .gobusWidgetBody .ui-menu .ui-menu-item-wrapper {
+     border: 0 none;
+     padding: 5px 10px;
+     line-height: 1;
+}
+ .gobusWidget .ui-menu .ui-state-active, .gobusWidgetBody .ui-menu .ui-state-active  {
+     background:skyblue;
+     margin: 0;
+}
+
+
+ @media(max-width: 2000px) {
+     .gobusWidget div.priceDiv {
+         width: 4%;
+    }
+     .gobusWidget div.tripDiv {
+         width: 38%;
+    }
+}
+ @media(max-width: 1550px) {
+     .gobusWidget div.priceDiv {
+         width: 7%;
+    }
+     .gobusWidget div.tripDiv {
+         width: 37%;
+    }
+}
+ @media(max-width: 1250px) {
+     .gobusWidget div.priceDiv {
+         width: 8%;
+    }
+     .gobusWidget div.tripDiv {
+         width: 34%;
+    }
+}
+ @media(max-width: 900px) {
+     .gobusWidget div.priceDiv {
+         width: 13%;
+    }
+     .gobusWidget div.tripDiv {
+         width: 29%;
+    }
+     .gobusWidget .tbody-widget > tr > td > div.dispatch_station, .gobusWidget .tbody-widget > tr > td > div.arrival_station {
+         font-size: 1em;
+    }
+     .gobusWidget .tbody-widget > tr > td > div.route_discription {
+         font-size: .85em;
+    }
+}
+/*стр выбора маршрута*/
+/*стр1 */
+ @media(max-width:770px) {
+     .gobusWidget div.search-result-div-widget {
+         display: none !important;
+    }
+     .gobusWidget table.search-result-table-widget td {
+         padding: 5px 15px 12px;
+         display: block;
+         width: 100% !important;
+    }
+     .gobusWidget table.search-result-table-widget td:first-child{
+         padding-top: 20px;
+    }
+     .gobusWidget table.search-result-table-widget td:last-child{
+         text-align: center;
+         padding-bottom: 20px;
+         padding-top: 10px;
+    }
+    
+     .gobusWidget .tbody-widget > tr > td > div.dispatch_time, .gobusWidget .tbody-widget > tr > td > div.arrival_time {	     
+	     display: inline-block;
+	}
+	 .gobusWidget .tbody-widget > tr > td > div.dispatch_date, .gobusWidget .tbody-widget > tr > td > div.arrival_date {	     
+		 margin-bottom: 10px;
+	}
+	.gobusWidget .dispatch_time:before, .gobusWidget .arrival_time:before {
+		content: "Отправление ";
+		margin-bottom: 5px;
+		display: inline-block;
+		margin-right: 8px;
+	}
+	.gobusWidget .arrival_time:before {
+	  content: "Прибытие ";
+	}
+	.gobusWidget .tbody-widget > tr > td > div.price {
+		font-size: 25px;
+		margin-bottom: 20px;
+		margin-top: 10px;
+	}
+    
+     .gobusWidget div.priceDiv {
+         width: 10%;
+    }
+     .gobusWidget div.tripDiv {
+         width: 26%;
+    }
+    /*форма поиска */
+     .gobusWidget .custom-form input[type="text"] {
+         padding-right: 10px;
+    }
+	.gobusWidget div.condensed {
+		margin: 0 0 5px;
+	}
+     .gobusWidget div.condensed.search-field {
+         width: 100%;
+    }
+     .gobusWidget div.condensed.small-button {
+         width: 100%;
+    }
+     .gobusWidget .col-12 {
+         float: left;
+         position: relative;
+    }
+     .gobusWidget div.condensed.calendar-field {
+         width: 100%;
+    }
+     .gobusWidget .form-control , .gobusWidget .form-calendar {
+         display: block;
+         width: 100%;
+    }
+     .gobusWidget i.fa-search::before {
+         content: "Найти";
+         font-size: 18px;
+         font-family: arial, sans-serif;
+    }
+     .gobusWidget form.global-search-form span.geocode {
+         padding: 6px 10px 2px 10px;
+    }
+    /*календарь*/
+     .gobusWidget #ui-datepicker-div {
+         left: 1% !important;
+         width: 98% !important;
+    }
+     .gobusWidget .ui-datepicker-multi {
+         width: 100% !important;
+    }
+     .gobusWidget .ui-datepicker-multi-2 .ui-datepicker-group {
+         width: 100% !important;
+    }
+     .gobusWidget .calendar-field #detail-spinner {
+         top: 30%;
+    }
+}
+ @media (max-width:639px) {
+}
+ @media (max-width:479px) {
+}
+ @media (max-width:369px) {
+}
+
+
+
+/*стр 2 Заполнение данных о пассажирах и выбор мест*/
+ .gobusWidget div.dispatchDivTrip {
+     position: relative;
+     top: 5px;
+}
+ .gobusWidget span.dispatchCalendar {
+     padding: 0;
+     margin: 0;
+     position: relative;
+     white-space: nowrap;
+}
+ .gobusWidget input.dispatchInfo {
+     font-weight: bold;
+     pointer-events: none;
+     width: 140px;    
+     background-color: #f0faf0;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	height: 26px;
+	padding: 2px 5px;
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+     -webkit-transition: box-shadow 0.3s ease;
+     -moz-transition: box-shadow 0.3s ease;
+     -ms-transition: box-shadow 0.3s ease;
+     -o-transition: box-shadow 0.3s ease;
+     transition: box-shadow 0.3s ease;
+}
+ .gobusWidget input.dispatchInfo:focus {
+	-webkit-box-shadow:   0 0 10px rgba(250, 246, 3, 0.5);
+	-moz-box-shadow:  0 0 10px rgba(250, 246, 3, 0.5);
+	box-shadow: 0 0 10px rgba(250, 246, 3, 0.5);
+}
+
+
+
+
+ .gobusWidget span.dispatchInfo {
+     font-weight: bold;
+     display: inline-block;
+	vertical-align: middle;
+}
+ .gobusWidget input.dispatchInfo + span:before {
+     content: "\f073";
+     font-family: FontAwesome;
+     font-size: 16px;
+     cursor: pointer;
+     position: absolute;
+     right: 50px;
+     top: 0px;
+}
+ .gobusWidget #detail-spinner {
+     position: absolute;
+/*     margin-top: -10px;
+     margin-left: 20%;*/
+}
+ .gobusWidget span.dispatchCalendar #detail-spinner {
+     margin-top: 5px;
+     margin-left: 48%;
+}
+
+/*кнопка Купить билет если рейс не доступен для продажи*/
+ .gobusWidget a.reis-button-not-found {
+     text-decoration: none;
+}
+ .gobusWidget a.reis-button-not-found > span {
+     color:black;
+     font-size: 16px ;
+}
+/*Кнопка Как оформить билет*/
+.gobusWidget div.how-made {
+     -webkit-transition: all 0.3s ease;
+     -moz-transition: all 0.3s ease;
+     -ms-transition: all 0.3s ease;
+     -o-transition: all 0.3s ease;
+     transition: all 0.3s ease;
+}
+ .gobusWidget div.how-made {
+     position: absolute;
+     /*top: 120px;*/
+     top:50px;
+     right: 150px;     
+     display: inline-block;    
+     border: 0 none;
+     padding: 8px 15px;
+     -webkit-border-radius: 25px;
+     -moz-border-radius: 25px;
+     border-radius: 25px;
+     text-align: center;
+     width: auto;
+     background-color: seagreen;
+     color:#fff;
+     cursor: pointer;
+     white-space: nowrap;
+     -webkit-box-shadow: 0 0 0 1px rgba(255,255,255,.5);
+      -moz-box-shadow: 0 0 0 1px rgba(255,255,255,.5);
+       box-shadow: 0 0 0 1px rgba(255,255,255,.5);
+}
+ .gobusWidget div.how-made:hover {
+     background-color: #1cac1c;     
+}
+
+.gobusWidget div#help {
+	margin: 0 auto;
+	font-size: .9em;
+	border: 3px double steelblue;
+	max-width: 1100px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding: 0 30px 50px;
+	line-height: 1.4;
+}
+ .gobusWidget div#help ol { margin: 0; padding-left: 20px;}
+ .gobusWidget div#help ol > li {
+     margin-bottom: 10px;
+}
+.gobusWidget div#help .close {
+	width: 40px;
+	height: 30px;
+	text-align: center;
+	min-width: 0;
+	margin: 10px 0 -10px -15px;
+	cursor: pointer;
+}
+.gobusWidget div#help .close i.fa-close { color: seagreen; font-size: 20px;}
+ .gobusWidget div#help {
+     display: none;
+}
+/*посадка/высадка/отправление*/
+ .gobusWidget div.dispatch-arrival {
+     float: left;
+     width:50%;
+     padding-right: 30px;
+     margin-bottom: 10px;
+
+}
+/*таблица с информацией о посадке, высадке, перевозчике, рейсе и месте в автобусе*/
+ .gobusWidget .tableTicketPay {
+     width:100%;
+     border-collapse: collapse;
+     margin: 0 auto 20px;
+}
+ @media (min-width:1350px) { 	
+ 	 .gobusWidget .tableTicketPay { max-width: 1100px;}
+}
+
+ .gobusWidget div.trip-info {
+     padding-left: 2px;
+     width:50%;
+     float: left;
+     margin-bottom: 10px;
+
+}
+.gobusWidget div.trip-info > div, .gobusWidget div.dispatch-arrival > div {
+	margin-bottom: 6px; clear: both;
+}
+.gobusWidget div.dispatch-arrival span.dispatchTrip, .gobusWidget  span.arrivalTrip, .gobusWidget  span.departureTrip {
+	display: block;
+	width: 130px;
+	font-weight: bold;
+	float: left;
+}
+.gobusWidget span.departureTrip {
+	padding-top: 3px;
+}
+ .gobusWidget div.dispatch-arrival span.cityName , .gobusWidget div.dispatch-arrival span.dispatchTime {
+     font-weight: bold; margin-right: 5px;
+}
+ .gobusWidget div.dispatch-arrival span.stationName, .gobusWidget div.trip-info span.infoTrip + span {
+     color: dimgray;
+}
+.gobusWidget div.dispatch-arrival span.cityStation, .gobusWidget div.trip-info span.infoTrip + span {
+	overflow: hidden;
+	display: block;
+}
+ .gobusWidget div.trip-info span.infoTrip {
+	display: block;
+	width: 130px;
+	font-weight: bold;
+	float: left;
+}
+/*Тарифы и цены, контакты*/
+ .gobusWidget .thead-tarif-price2 > tr > th {
+     text-align: left;
+     height: 30px;
+     width:50%;
+}
+ .gobusWidget .paxes > thead > tr > th {
+     text-align: left;
+     font-size: .9em;
+     height: 30px;
+}
+ .gobusWidget .tarif-price > tbody > tr > td ,  .gobusWidget .contacts > tbody > tr > td {
+     height : 30px; padding: 1px;
+}
+.gobusWidget .tarif-price > tbody > tr > td.table-price {
+	font-size: 1.5em;
+}
+.gobusWidget .tarif-price > tbody > tr > td.table-price .fa:before {
+	font-size: .8em;
+}
+ .gobusWidget .tarif-contact-price {
+     float: left;
+     width: 50%;
+}
+ .gobusWidget .tarif-price , .gobusWidget .contacts {
+     margin-top: 10px;
+     width: 100%;
+}
+ .gobusWidget .thead-tarif-price1 > tr > th , .gobusWidget .thead-contacts > tr > th {
+     text-align: left;
+     color: seagreen;
+}
+ .gobusWidget .thead-tarif-price1 > tr > th , .gobusWidget .contacts > thead > tr > th {
+     font-size: 1.13em;
+     height: 30px;
+}
+ .gobusWidget .tarif-price > tbody , .gobusWidget .contacts > tbody, .gobusWidget .passengers > tbody {
+     font-size: .933em;
+}
+ .gobusWidget .contacts > tbody >tr >td.headerContacts {
+     width: 50%;
+}
+
+
+
+ .gobusWidget #phone, .gobusWidget #email {
+     background-color: #f0faf0;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	height: 26px;
+	width: 100%;
+	padding: 2px 5px;
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+     -webkit-transition: box-shadow 0.3s ease;
+     -moz-transition: box-shadow 0.3s ease;
+     -ms-transition: box-shadow 0.3s ease;
+     -o-transition: box-shadow 0.3s ease;
+     transition: box-shadow 0.3s ease;
+}
+ .gobusWidget #phone:focus,  .gobusWidget #email:focus {
+	-webkit-box-shadow:   0 0 10px rgba(250, 246, 3, 0.5);
+	-moz-box-shadow:  0 0 10px rgba(250, 246, 3, 0.5);
+	box-shadow: 0 0 10px rgba(250, 246, 3, 0.5);
+}
+
+/*стереть все из поля тел и email*/
+ .gobusWidget td.tdClose {
+     position: relative;
+}
+ .gobusWidget span.iconClose:before, .gobusWidget span.iconClosePas:before {
+     content: "\2715";
+     font-family: FontAwesome;
+     font-size: 10px;
+     cursor: pointer;
+     position: absolute;
+     top: 8px;
+     right: 8px;
+}
+
+
+/*схема автобуса*/
+ .gobusWidget div.divProvider {
+     width:100%;
+}
+ .gobusWidget .bus-places {
+     float: left;
+     width: 50%;
+     padding-left: 130px;
+}
+ .gobusWidget .bus-places table div.freePlaces {
+     text-align:left;
+}
+ .gobusWidget .bus_place {
+     display:inline-block;
+     width:20%;
+     max-width:50px;
+     margin-buttom:20px;
+     text-align:center;
+}
+.gobusWidget #the_bus_salon {
+	border: 1px solid #e5e5e5 !important;
+	-webkit-border-radius: 7px !important;
+	-moz-border-radius: 7px !important;
+	border-radius: 7px !important;
+	text-align: left;
+}
+
+.gobusWidget #bus .raw-place {
+    border: 0 none;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    -webkit-box-shadow: 2px 2px 4px rgba(0,0,0,.3);
+    -moz-box-shadow: 2px 2px 4px rgba(0,0,0,.3);
+    box-shadow: 2px 2px 4px rgba(0,0,0,.3);
+         -webkit-transition: all 0.3s ease;
+     -moz-transition: all 0.3s ease;
+     -ms-transition: all 0.3s ease;
+     -o-transition: all 0.3s ease;
+     transition: all 0.3s ease;
+     padding-top: 4px;
+
+}
+.gobusWidget #bus .raw-place.my-blocked, .gobusWidget #bus .raw-place.vacant:hover {
+    color: #fff;
+    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.4);
+    -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.4);
+    box-shadow: 1px 1px 2px rgba(0,0,0,.4);
+
+}
+.gobusWidget .self-reserved-color { color: #fff;}
+.gobusWidget #bus .raw-place.vacant:hover {
+    background-color: #07c259; 
+}
+.gobusWidget #bus .raw-place.sold, .gobusWidget .sold-place-color {
+	background-color: #fba490;
+}
+.gobusWidget #bus  .bus-overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.4);
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 1;
+}
+.gobusWidget #bus  #detail-spinner {
+/*     margin-top: 25px;
+     margin-left: 15px;
+*/
+	left: 50%; top:50%; margin: -5px 0 0 -5px;
+}
+
+
+/*форма заполнения информации о пассажирах, схема автобуса, информация о перевозчике, посадке и т. д.*/
+ .gobusWidget .passenger-tables {
+     margin-top: 5px;
+     background-color: whitesmoke;
+     padding: 40px;
+     -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+     border-radius: 3px;
+}
+ .gobusWidget div.pas {
+     font-weight: bold;
+     color: seagreen;
+     font-size: 1.13em;
+}
+/*кнопки Как оформить билет и Добавить пассажира*/
+
+.gobusWidget .button.question, 
+.gobusWidget .button.add,
+.gobusWidget div.submit-button .custom-button,
+.gobusWidget div.info, .gobusWidget div.trash
+ {
+     -webkit-transition: background 0.3s ease;
+     -moz-transition: background 0.3s ease;
+     -ms-transition: background 0.3s ease;
+     -o-transition: background 0.3s ease;
+     transition: background 0.3s ease;
+}
+.gobusWidget .button.question, 
+.gobusWidget .button.add,
+.gobusWidget div.submit-button .custom-button {
+     display: inline-block;    
+     border: 0 none;
+     padding: 8px 15px;
+     -webkit-border-radius: 25px;
+     -moz-border-radius: 25px;
+     border-radius: 25px;
+     text-align: center;
+     width: auto;
+     background-color: seagreen;
+     color:#fff;
+     cursor: pointer;
+     white-space: nowrap;
+     min-width: 120px;
+}
+.gobusWidget .button.question:hover, 
+.gobusWidget .button.add:hover,
+.gobusWidget div.submit-button .custom-button:hover {
+     background-color: #1cac1c;     
+}
+
+ .gobusWidget .passenger 
+/*табл Пассажиры вместе с названием Пассажиры*/
+ {
+     width: 100%;
+     border-collapse: collapse;
+}
+ .gobusWidget .pas-input {
+     opacity: 1;
+     display: block;
+     width: 100%;
+}
+ .gobusWidget .title-pas,  
+ .gobusWidget .add-pas {
+     width: 50%;
+}
+ .gobusWidget .add-pas {
+	width: 50%;
+	text-align: right;
+}
+ .gobusWidget .pas-buttom {
+     vertical-align: bottom;
+}
+ .gobusWidget .paxes,  .gobusWidget .title-passengers {
+     width:100%;
+}
+ .gobusWidget span#ready ,  .gobusWidget span#help-info-email {
+     color: green;
+}
+ .gobusWidget div#welcomina {
+     display: none;
+}
+
+ .gobusWidget .passengers 
+/*таблица, состоящая из строк, которые можно добавить кнопкой Добавить Пассажира*/
+ {
+     border-collapse: separate;
+     border-spacing: 2px 10px;
+}
+.gobusWidget .passengers td {
+	padding: 1px; border: 0 none;
+}
+ .gobusWidget .placeNumber {
+     width: 5%;
+}
+ .gobusWidget .baggage-pas,  .gobusWidget .gender-pas {
+     width: 3%;
+     min-width: 46px;
+}
+ .gobusWidget .tarif-pas {
+     width: 8%;
+}
+ .gobusWidget .surname,  .gobusWidget .name,  .gobusWidget .secondName,  .gobusWidget .dateCalendar,  .gobusWidget .grazdanstvo,  .gobusWidget .document {
+     width: 11%;
+}
+ .gobusWidget .docNumber {
+     width:12%;
+}
+ .gobusWidget .button-trash-info {
+     width: 3%;
+     position: relative;
+     min-width: 46px;
+}
+ .gobusWidget .paxes > tbody > tr > td > input, .gobusWidget .paxes > tbody > tr > td > select {
+     background-color: #f0faf0;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	height: 26px;
+	width: 100%;
+	padding: 2px 15px 2px 5px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+     -webkit-transition: box-shadow 0.3s ease;
+     -moz-transition: box-shadow 0.3s ease;
+     -ms-transition: box-shadow 0.3s ease;
+     -o-transition: box-shadow 0.3s ease;
+     transition: box-shadow 0.3s ease;     
+}
+.gobusWidget .paxes > tbody > tr > td > select {
+	padding: 2px;
+}
+ .gobusWidget .paxes > tbody > tr > td > input:focus, .gobusWidget .paxes > tbody > tr > td > select:focus {
+	-webkit-box-shadow:   0 0 10px rgba(250, 246, 3, 0.5);
+	-moz-box-shadow:  0 0 10px rgba(250, 246, 3, 0.5);
+	box-shadow: 0 0 10px rgba(250, 246, 3, 0.5);
+}
+ .gobusWidget select.sex {
+     min-width:40px;
+}
+ .gobusWidget select.tarif {
+     min-width:80px;
+}
+ .gobusWidget .paxes > tbody > tr > td > div > input {
+     border: 1px solid transparent;
+     -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+     border-radius: 5px;
+     background-color: transparent;
+     height: 26px;
+}
+.gobusWidget .passengers tr.error > td {
+	padding: 5px 10px;
+	font-size: .825em;
+	font-weight: 700;
+	margin: 0 !important;
+}
+
+
+
+
+/*строки заполнения информации о пассажирах. Галочки о согласии*/
+ .gobusWidget table.passenger > td.passenger-td {
+     width:80%;
+}
+ .gobusWidget div.button_trash,  .gobusWidget div.button_info {
+     position: absolute;
+     margin-top: auto;
+     padding: 0px;
+     -webkit-border-radius: 20px;
+     -moz-border-radius: 20px;
+     border-radius: 20px;
+     text-align: center;
+     color: black;
+     font-size: 13px;
+     opacity: 1;
+     max-width: 20px;
+     min-width: 20px;
+     width: 20px;
+     height: 20px;
+     cursor: pointer;
+}
+ .gobusWidget div.trash {
+     right: 0;
+     top: 5px;
+     border: 2px solid #e86464;
+}
+ .gobusWidget div.trash:hover {
+     background-color: #e86464;
+
+}
+/*кнопка информация*/
+ .gobusWidget div.info {
+     top: 5px;
+     border: 2px solid royalblue;
+}
+ .gobusWidget div.info:hover {
+     background-color: royalblue;
+
+}
+/*кнопка Готово*/
+.gobusWidget .submit-button {
+	margin-top: -58px;
+	opacity: .5;
+	text-align: right;
+	margin-bottom: 40px;
+}
+.gobusWidget div.pay > a.custom-button {
+	display: block;
+	border: 0 none;
+	padding: 8px 15px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+	text-align: center;
+	width: 200px;
+	background-color: seagreen;
+	color: #fff;
+	cursor: pointer;
+	white-space: nowrap;
+	text-decoration: none;
+	font-weight: 400;
+	margin: 40px auto;
+}
+.gobusWidget div.pay > a.custom-button:hover {
+     background-color: #1cac1c;     
+}
+ .gobusWidget a.custom-button > span {
+	font-size: 1.2em;
+	display: block;
+	margin: -8px -15px;
+	padding: 8px 20px;
+    cursor: pointer;
+}
+.gobusWidget a.custom-button.submit > span {
+	cursor: not-allowed;
+}
+
+/*я подписываюсь на рассылку...*/
+.gobusWidget div.subscribe {
+	padding-left: 5px;
+  	font-size: .85em;
+	font-weight: 700;
+
+}
+.gobusWidget div.subscribe > label {
+}
+.gobusWidget div.subscribe > span {
+     color: seagreen; font-weight: 400;
+}
+
+.gobusWidget div.subscribe input {
+  margin-left: 0;
+}
+ .gobusWidget select.tarif, .gobusWidget select.baggage, .gobusWidget select.sex, .gobusWidget .name_input, .gobusWidget .secondName_input, .gobusWidget .surname_input, .gobusWidget .dr_input, .gobusWidget .grazd_input, .gobusWidget .doc_input, .gobusWidget .docnum_input {
+     background-color: honeydew;
+}
+
+ .gobusWidget input.place-number {
+     font-size: 25px;
+     font-weight: bold;
+     color: seagreen;
+     pointer-events: none;
+     padding: 1px 5px;
+     line-height: 1;
+}
+ .gobusWidget .icon-close {
+     padding-left: 3px;
+}
+
+
+
+
+
+/*сообщение о том, что оплату нужно произвести в течение 30 мин. Активно после нажатия на Готово*/
+ .gobusWidget div#welcomina {
+     text-align: left;
+     font-size: 15px;
+     font-family: Helvetica;
+     font-weight: normal;
+}
+ .gobusWidget div#welcomina p.if-not-logged {
+     font-weight: normal;
+}
+ .gobusWidget div#welcomina p.thanks {
+     text-align: center;
+}
+ .gobusWidget div#welcomina table {
+     width: 100%;
+}
+ .gobusWidget div#welcomina > div > table {
+     background: none;
+}
+ .gobusWidget div#iWill-text {
+     display: none;
+}
+/*таблица с информацией о забронированных местах (после оформления пассажира и формирования окна со ссылкой стр 3)*/
+.gobusWidget table.condensed {
+	border-spacing: 0px 3px;
+	/*margin-bottom: 30px;*/
+}
+ .gobusWidget table.condensed li {
+     list-style: none outside none; margin: 5px 0;
+}
+ .gobusWidget thead.passengerTableThead > tr >th {
+     text-align: left;
+     border-top: 2px solid darkgray;
+     border-bottom: 2px solid darkgray;
+     padding: 3px;
+}
+ .gobusWidget table.condensed tbody td.center span.reserved {
+     font-weight: bold;
+     color: goldenrod;
+}
+ .gobusWidget table.condensed tbody td.center span.sold {
+     font-weight: bold;
+     color: seagreen;
+}
+ 
+ .gobusWidget .condensed > tbody > tr >td {
+     text-align: left;
+     border-bottom: 1px solid darkgray;
+     padding: 5px;
+}
+ .gobusWidget div#dialog-add-bookmark input {
+     width:100%;
+     font-size:10px;
+}
+ ul.ui-menu {
+     overflow-y: scroll;
+     max-height: 170px;
+     padding: 0 1px;
+}
+
+
+/*стр 2 Заполнение данных о пассажирах и выбор мест*/
+ @media(max-width: 992px) {
+
+
+    /*посадка, высадка, информация о перевозчике и Как оформить билет*/
+    
+
+     .gobusWidget table.passenger td.title-pas 
+    /*Название Пассажиры*/
+     {
+         display: block;
+         width: 100%;
+    }
+     .gobusWidget table.passenger td.add-pas
+    /*Добавить пассажира*/
+     {
+         display: none;
+    }
+     .gobusWidget .non-mobile-only {
+         display: none !important;
+    }
+     .gobusWidget .mobile-only {
+         display: inline-block !important;
+    }
+	.gobusWidget table#paxes input.place-number {
+		display: inline-block;
+		height: auto;
+		width: 45px;
+		border: 1px solid #ccc;
+		text-align: center;
+		padding: 4px;
+		margin: 8px 5px 10px 0;
+	}
+    .gobusWidget table#paxes .placeNumber {
+		font-size: 1.1em;
+		font-weight: 700;
+	}
+    .gobusWidget table#paxes .text-muted {
+		 font-size: .85em;
+         display: inline-block;
+		 color: dimgray;
+		 font-weight: 400;
+	 }
+	 .gobusWidget table#paxes .pax-counter {	margin-right: 5px;}
+     .gobusWidget table#paxes td {
+         display: block;
+         width: 100%;
+         margin-bottom: 8px;
+    }
+	.gobusWidget table#paxes .button-trash-info {
+		overflow: hidden;
+		padding-bottom: 25px;
+		border-bottom: 1px dotted #ccc;
+	}
+
+	.gobusWidget div.button_trash {
+		float: right;
+		width: auto;
+		min-width: 170px;
+		padding: 6px 15px;
+		-webkit-border-radius: 25px;
+		-moz-border-radius: 25px;
+		border-radius: 25px;
+		text-align: center;
+		cursor: pointer;
+		white-space: nowrap;
+		height: auto;
+		font-size: inherit;
+		position: relative;
+		max-width: none;
+        margin-top: 20px;
+		margin-bottom: 10px;
+		top: auto;
+
+	}
+     .gobusWidget .button.add {
+         float: left; 
+         margin-top: 20px;
+		margin-bottom: 10px;
+    }
+
+     .gobusWidget table.condensed td {
+         display: block;
+         width: 100%;
+         text-align: left;
+         border-bottom: 0;
+         text-align: left;
+         margin-top: 10px;
+    }
+     .gobusWidget .condensed > tbody > tr >td {
+         text-align: left;
+         border: none;
+         padding: 5px;
+    }
+    .gobusWidget .condensed > tbody > tr > td:last-child {	border-bottom: 1px dotted #ccc; overflow: hidden; padding-bottom: 15px;}
+    .gobusWidget .condensed > tbody:last-child > tr > td:last-child { border: 0 none; }
+	.gobusWidget .mobile-label {
+		min-width: 130px;
+		font-weight: 700;
+	}
+
+
+}
+
+ @media(max-width: 860px) {
+    .gobusWidget div.dispatch-arrival, .gobusWidget div.trip-info {
+         width: 100%; padding: 0; 
+    }
+    .gobusWidget .bus-places {	padding-left: 0;	width: auto;	margin-right: 10%;	max-width: 40%;}
+    
+    .gobusWidget .submit-button {	margin-top: 20px;}
+}
+
+
+/*стр 2 Заполнение данных о пассажирах и выбор мест*/
+ @media(max-width: 770px) {
+ 	
+
+    /*посадка высадка, тарифы контакты, информация о перевозчике и Как оформить билет*/
+    
+    
+    .gobusWidget div.how-made {
+		/*top: 142px;*/
+                top:50px;
+		left: 50%;
+		margin-left: -80px;
+		right: auto;
+		width: 200px;
+	}    
+    
+     .gobusWidget .mobile-only {
+         display: inline-block !important;
+    }
+     .gobusWidget div.tarif-contact-price table.tarif-price {
+         margin-bottom: 15px;
+    }
+     .gobusWidget .non-mobile-only , .gobusWidget .non-mobile-only-change {
+         display: none !important;
+    }
+     .gobusWidget div.tarif-contact-price table.contacts td {
+         display: block;
+         width: 100%;
+         text-align: left;
+    }
+	.gobusWidget div.tarif-contact-price table.contacts td.headerContacts {
+		padding-top: 5px;
+	}
+
+}
+
+ @media (max-width:639px) {
+	 .gobusWidget div#help {	padding: 0 15px 50px;}
+     .gobusWidget div.how-made {		/*top: 162px;*/top:90px;	}
+	 .gobusWidget .passenger-tables {	padding: 40px 25px;}
+     .gobusWidget .bus-places, .gobusWidget .tarif-contact-price { width: 100%;     }
+	 .gobusWidget .bus-places {
+		padding-left: 110px;
+		margin-bottom: 20px;
+		margin-right: 0;
+		max-width: none;
+	 }
+     .gobusWidget div.dispatch-arrival span.dispatchTrip, .gobusWidget span.arrivalTrip, .gobusWidget span.departureTrip, .gobusWidget div.trip-info span.infoTrip {	width: 110px;}
+     .gobusWidget .mobile-label {	min-width: 110px;}
+	
+}
+ @media (max-width:479px) {
+ 	
+  .gobusWidget div.how-made {		/*top: 140px;*/top:130px;	}
+  .gobusWidget .passenger-tables {	padding: 40px 12px;}
+  .gobusWidget .button.add, .gobusWidget div.button_trash {
+		display: block !important;
+		float: none;
+		width: 170px;
+		margin: 15px auto;
+	}
+  .gobusWidget div.submit-button .custom-button {
+		display: block;
+		float: none;
+		margin: 0 auto;
+		width: 200px;
+	}
+
+}
+ @media (max-width:369px) {
+    .gobusWidget div.how-made {		/*top: 160px;*/top:130px;	}
+    .gobusWidget .bus-places {
+		padding-left: 0;
+		text-align: center;
+	}
+	.gobusWidget input.dispatchInfo {	width: 115px;}
+
+}
+
+/*стр3 Оплата заказа/Отмена заказа/Возврат денег*/
+
+ .gobusWidget .tableTicketPay span.ticketId {
+	margin-right: 20px;
+}
+ .gobusWidget .fa-print {
+     color: black;
+}
+.gobusWidget div#dialog-sbrf-pay { padding-top: 20px; padding-bottom: 20px; min-height: 930px !important;}
+.gobusWidget div#dialog-sbrf-pay-first {
+     overflow:auto;
+     -webkit-overflow-scrolling:touch;
+     width:100%;
+     height: 100%;
+}
+.gobusWidget div.dialog-sbrf-pay-text { height: 100px; display: table-cell; vertical-align: middle;}
+ .gobusWidget iframe#iframe-pay {
+     overflow:scroll !important;
+     width:100%;
+     height:760px;
+     margin-top: 10px;
+}
+/*кнопки Отменить бронь и Оплатить картой*/
+ .gobusWidget .tableTicketPay .payCancelButtons {
+     height: 80px; text-align: center;
+}
+
+ .gobusWidget .pay-button {
+	display: inline-block;
+    vertical-align: middle;
+	border: 0 none;
+	padding: 8px 15px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+	text-align: center;
+	width: 200px;
+	background-color: seagreen;
+	color: #fff;
+	cursor: pointer;
+	white-space: nowrap;
+	text-decoration: none;	
+     margin: 20px auto;
+	
+}
+ .gobusWidget .pay-button:hover {
+     background-color: #1cac1c;     
+}
+/*кнопка отменить заказ*/
+ .gobusWidget .cancel-order {
+     background-color: #e86464;
+     margin-right: 30px;
+}
+ .gobusWidget .cancel-order:hover {
+     background-color: #ec4343;
+
+}
+/*кнопка перейти к оплате*/
+ .gobusWidget .pay-credit-card {
+     background-color: seagreen;
+}
+/*отображение окна после завершения оплаты*/
+ .gobusWidget div#sberPay {
+     font-size: 20px;
+     font-weight: bold;
+     color: seagreen;
+     text-align: center;
+     background-color: transparent;
+}
+div.button-print-ticket:hover {
+     background-color: #1cac1c;
+}
+/* кнопка подать заявление на возврат билета*/
+
+.gobusWidget div.buttons-for-pay-ticket {
+     /*position: absolute;*/
+     font-weight: bold;
+font-size: 13px;
+font-family: arial;
+     -webkit-border-radius: 25px;
+     -moz-border-radius: 25px;
+     border-radius: 25px;
+     text-align: center;
+     /*opacity: 1;
+     float: right;
+     width: 25px;
+     height: 25px;*/
+     cursor: pointer;
+     /*min-width: 25px;
+     max-width: 25px;
+     margin-top: -15px;
+     padding-top: 2px;*/
+     margin-bottom: 7px;
+      -webkit-transition: background 0.3s ease;
+     -moz-transition: background 0.3s ease;
+     -ms-transition: background 0.3s ease;
+     -o-transition: background 0.3s ease;
+     transition: background 0.3s ease;
+}
+
+.gobusWidget div.button-print-ticket > a{
+    text-decoration: none;
+    colour:black;
+}
+
+ .gobusWidget div.button-print-ticket {
+     border: 2px solid seagreen;
+}
+ .gobusWidget div.button-return-money {
+     border: 2px solid #e86464;
+     /*margin-left: 40px;*/
+}
+.gobusWidget div.button-return-money:hover {
+     background-color: #e86464;
+
+}
+/*стр3 Оплата заказа/Отмена заказа/Возврат денег*/
+ @media(max-width:992px) {
+
+
+    .gobusWidget div.button-return-money {
+    	    /*распечатать билет и отменить заказ*/
+		float: right;
+		width: auto;
+		min-width: 170px;
+		padding: 6px 15px;
+		-webkit-border-radius: 25px;
+		-moz-border-radius: 25px;
+		border-radius: 25px;
+		text-align: center;
+		cursor: pointer;
+		white-space: nowrap;
+		height: auto;
+		position: relative;
+		margin: 0 0 20px;
+	}
+
+}
+/*стр3 Оплата заказа/Отмена заказа/Возврат денег*/
+ @media(max-width:770px) {
+
+}
+ @media (max-width:639px) {
+ 	
+ 	.gobusWidget .pay-button {
+		display: block;
+		margin: 0 auto 20px !important;
+	}
+}
+ @media (max-width:479px) {
+ 	
+ 	.gobusWidget div.button-return-money {
+		display: block !important;
+		float: none;
+		margin: 6px auto 28px;
+	}
+}
+ @media (max-width:369px) {
+}
+ 

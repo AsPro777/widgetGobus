@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<?php
+$this->headTitle()->setAutoEscape(false);
+    $this->headMeta()->setAutoEscape(false);
+    $this->headLink()->setAutoEscape(false);
+    $this->headScript()->setAutoEscape(false);
+    $this->inlineScript()->setAutoEscape(false);
+
+    if($getCssFile==FALSE)$this->headLink()->appendStylesheet($this->basePath('css/widget/widget.css'.'?'.random_int(11111, 99999)));
+    else $this->headLink()->appendStylesheet($cssParam.'?'.random_int(11111, 99999));
+
+?>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+      <div id="sberPay">
+
+        <br>
+        Сейчас Вы будете перенаправлены на страницу заказа...
+      </div>
+    </body>
+</html>
+
+
+<?
+ echo <<<JS
+         <script type="text/javascript">
+         /*потом эти 4 строки убрать оставить вместо них  setTimeout(function(){ window.parent.location.href='$ourl'; }, 7000);*/
+         var sberPayAnswer='';
+
+         var url='$ourl';
+         url=url.slice('online'.length+url.indexOf('online'));
+
+         switch($err)
+         {
+          case 0:  sberPayAnswer='Ваш заказ оплачен'; break;
+          case 1:  sberPayAnswer='Не удалось оплатить заказ';  break;
+          default:  sberPayAnswer='';
+         }
+         $('#sberPay').prepend(sberPayAnswer);
+            setTimeout(function(){ window.parent.location.href=url; }, 3000);
+
+         </script>
+JS;
+?>
+
+

@@ -1,0 +1,137 @@
+<?php
+$this->headTitle('Возврат билетов');
+$this->publicMenu()->setActiveItemId('ticket-return');
+$this->publicMenu()->setBreadCrumbs('home,ticket-return');
+
+$this->headLink()
+        ->appendStylesheet($this->basePath('css/front/ticket-return.css'.'?'.random_int(11111, 99999)))
+       /* ->appendStylesheet($this->basePath('amira/css/bootstrap.min.css'))*/
+       /* ->appendStylesheet($this->basePath('amira/css/style.css'))*/
+    ;
+
+if($getCssFile===FALSE)$this->headLink()->appendStylesheet($this->basePath('css/widget/widget.css'.'?'.random_int(11111, 99999)));
+  else $this->headLink()->appendStylesheet($cssParam.'?'.random_int(11111, 99999));
+
+if($phoneConfig===''||$phoneConfig===NULL) $spanPhoneConfig='';
+else $spanPhoneConfig='Горячая линия '.$phoneConfig;
+
+?>
+
+<?=$this->inlineScript()
+    ->prependFile($this->basePath('js/jquery.mask.js'));
+?>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<div class="header search">
+    <!--<a class="menuButtons returnHome" title="На главную">
+        <i class="fa fa-home"></i>
+    </a>-->
+     <h3 class="h3-header">Правила возврата билетов </h3>
+     <a class="returnHome" title="Возврат билетов">
+
+             <div class="return-home"> На главную
+             </div>
+
+     </a>
+    <span class="configPhone"><?=$spanPhoneConfig?></span>
+</div>
+
+<div class="passenger-tables">
+    <div class="returnInfo">
+        Согласно статье 23 <a href="http://www.rg.ru/2007/11/17/ustav-doc.html" style="text-decoration: none" target="_blank">Устава автомобильного транспорта</a> от 8 ноября 2007 г. при срыве рейса по
+        техническим причинам или задержке рейса более чем на час, возврат денег производится в полном объеме.
+        Если возврат билета инициирует пассажир, то производятся следующие удержания:
+
+        <ul>
+            <li>Возврат билета более чем за 2 часа до отправления - 5%
+            </li><li>Возврат билета в течение 2 часов до отправления - 15%
+            </li><li>Возврат билета в течение 3 часов после отправления - 25%
+            </li><li>Через 3 часа после отправления автобуса возврат денег за билет не производится
+            </li>
+        </ul>
+
+        <p>
+            Расчет суммы возврата производится от стоимости билета, без учета комиссий агентов (продавцов билетов) и комиссии системы.<br>
+            <b>Таким образом, агентский сбор в сумму возврата не включается!</b>
+        </p>
+    </div>
+    <H3 class="electroReturn">Электронное заявление на возврат билета, оплаченного онлайн</H3>
+    <div class="returnInfo">
+
+        При возврате билетов, которые были оплачены онлайн, действуют следующие правила:
+        <ul>
+            <li>Для возврата оплаченных онлайн билетов, необходимо подать электронное заявление на возврат.
+            </li><li>При подаче электронного заявления место, указанное в билете, сразу поступает в продажу.
+            </li><li>Возврат средств происходит по мере обработки заявлений диспетчером.
+            </li><li>Средства возвращаются только на тот же счет, с которого осуществлялась оплата.
+            </li>
+        </ul>
+        Прочие детали и расчет комиссии будут доступны после идентификации билета:
+    </div>
+  <form method="post" class="custom-form" id="ticket-return-form">
+    <?php if ($msg): ?>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="text-center my_message visible">
+                <div>
+                    <h4 class="notice"><?= $this->escapeHtml($msg) ?> </h4>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+        <div class="row">
+         <!--   <div class="form-group col-md-4">
+                <div style="text-align: center; padding-top: 25px;">-->
+         <div class="dataTicket"> Укажите данные из билета </div>
+            <!--    </div>
+            </div>-->
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="returnInfo">
+                    Введите номер билета
+                    <input type='text' required="required" name='id_ticket' class='form-control' style='width:160px;'>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="returnInfo">
+                    Введите номер паспорта
+                    <input type='text' name='doc_num' required="required" class='form-control' style='width:160px;'>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group form-captcha">
+                <div>
+                    <ul><li class="form-error-msg">
+                        <div class="g-recaptcha" data-sitekey="6Lfek3IUAAAAAKPLUGjt11mqsFcJUVK-XdshqnO0"></div>
+                        <?php if($msgCap):?>
+                          <b>Ошибка при вводе защитного кода!</b>
+                        <?php endif;?>
+                            </li></ul>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+        </div>
+
+        <div class="row">
+            <div class="divSubmit">
+                <input type='submit' value="Найти билет" id="submit" class="custom-button center-block" name="submit">
+            </div>
+        </div>
+     </form>
+</div>
+
+<?echo <<<JS
+<script type="text/javascript">
+   $('a.returnHome').attr('href','/widget/'+$path);
+   $('input[name=id_ticket]').mask('9999999999999999999');
+   $('input[type=text]').focusout();
+</script>
+JS;
+?>
+
+
