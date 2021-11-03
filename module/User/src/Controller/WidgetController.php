@@ -104,65 +104,7 @@ class WidgetController extends AbstractActionController
     }
   }
 
-//сформирует объект по текущему пользователю
-     //пока не используется. Возможно будет использована для определения пользователя по его номеру тел и почте на стр 2
-     /*
- private function getAccount($email,$phone)
-     {
 
-         $udata = false;
-         header('Content-type: text/javascript');
-
-        $post = $this->params()->fromPost();
-        $check_user = $this->entityManager->getRepository(\User\Entity\Usr::class)->findOneBy([
-            "email" => @$post["email"],
-            "deleted" => false
-        ]);
-
-         $user = $this->entityManager->getRepository(Usr::class)->getCurrentUser();
-        $result = !empty($check_user);
-
-        $resp = $this->getResponse();
-        return $resp->setContent(json_encode(["result"=>$result]));*/
-
-      /*  if($user = $this->entityManager->getRepository(Usr::class)->getCurrentUser("id", $this->identity()))
-
-        {
-            $dvf = new \Application\Filter\DataValueFilter();
-            $udata = [];
-//Преобразуйте все объекты HTML в соответствующие символы
-            $udata['phone'] = htmlentities($dvf->get("profile.contact.phone1", $user->getData()));
-            $udata['email'] = htmlentities($user->getEmail());
-            $udata['f'] = htmlentities($user->getF());
-            $udata['i'] = htmlentities($user->getI());
-            $udata['o'] = htmlentities($user->getO());
-            $udata['sex'] = htmlentities($dvf->get("profile.user.sex", $user->getData()));
-            if($udata['sex']=="") $udata['sex'] = 1;
-            $udata['dr'] = htmlentities($dvf->get("profile.user.dr", $user->getData()));
-            $udata['grazhd'] = htmlentities($dvf->get("profile.user.grazhd", $user->getData()));
-            $udata['grazhd_txt'] = htmlentities($dvf->get("profile.user.grazhd_txt", $user->getData()));
-            $udata['doc'] = htmlentities($dvf->get("profile.user.passport_type", $user->getData()));
-            if($udata['doc']=="") $udata['doc'] = 0;
-            $udata['doc_txt'] = htmlentities($dvf->get("profile.user.passport_type_txt", $user->getData()));
-            $udata['doc_num'] = htmlentities($dvf->get("profile.user.passport", $user->getData()));
-
-            $pt = $this->entityManager->getRepository(\User\Entity\SprDocType::class)->findOneByCode($udata['doc']);
-            $udata['doc_mask'] = $pt->getMask();
-            $udata['doc_example'] = $pt->getExample();
-        }*/
-
-
-/*
-         header('Content-type: text/javascript');
-         $response = $this->getResponse();
-         return $response->setContent(json_encode(["success" =>TRUE,
-                                                  "login"=>$log,
-                                                  "password"=>$pass,
-                                                  "udata"=>$udata]
-                                                 ));
-
-     }
-*/
  //если пользователь поставил галочку Создать аккаунт то с помощью этой функции создадим его. Используется в bookOrder
   private function createAccount($data)
   {
@@ -495,40 +437,7 @@ class WidgetController extends AbstractActionController
     else $jsonCancelReserved='';
     return $response->setContent(json_encode(["success" =>true,
                                               "cancelReserved"=>$jsonCancelReserved]));
-       /* header('Content-type: text/javascript');
-        $resp = $this->getResponse();
-
-        $result = ["success" => 0];
-
-        if(empty($orderId))
-            return $resp->setContent(json_encode($result));
-
-        $web_order = $this->entityManager->getRepository(\User\Entity\WebOrder::class)->findBy([
-            "idOrder"=>$orderId,
-            "status" => 0
-        ]);
-
-        if(empty($web_order)) return $resp->setContent(json_encode($result));
-
-        foreach ($web_order as $wo)
-        {
-            $ticket = $this->entityManager->getRepository(\User\Entity\Ticket::class)->findOneBy([
-                "id"=>$wo->getIdTicket(),
-                "status" => 0
-            ]);
-
-            if(!empty($ticket))
-                $ticket->setStatus(9);
-
-            $wo_data = $wo->getData();
-            $wo_data["canceler"] = ["name"=>"user"];
-            $wo->setData($wo_data);
-            $wo->setStatus(3);
-            $this->entityManager->flush();
-        }
-
-        $result["success"] = 1;
-        return $resp->setContent(json_encode($result));*/
+       
 
   }
 
@@ -558,10 +467,10 @@ class WidgetController extends AbstractActionController
         if($order["status"]==0)//проверим действительно ли данный заказ зарезервирован
         {
           $dvf = new \Application\Filter\DataValueFilter();
-          $webOrderId=$dvf->get("sbrfrest.orderId", json_decode($order['data'],true));//пошлем в фильтр json-данные $order['data'] и найдем в них сперва sbrfrest а в том что получим найдем orderId
+          $webOrderId=$dvf->get("sbrfrest.orderId", json_decode($order['data'],true)); 
           $webFormUrl=$dvf->get("sbrfrest.formUrl", json_decode($order['data'],true));
 
-          if(!empty($webOrderId))//если в бд в таблице web_order в поле data нет sbrfrest.orderId и sbrfrest.formUrl-значит билет не зарегестрирован в сбербанке и надо делать запрос в сбербанк. Если имеем sbrfrest.orderId и sbrfrest.formUrl значит билет был зарегистрирован в сбербанке (возможно пользователь не верно ввел номер карты) тогда вернем из БД ссылку на оплату в сбербанке (чтоб пользователь имел возможность еще раз попытаться оплатить билет). Если имеем один из параметров(OrderId или formUrl)в БД то выдать ошибку
+          if(!empty($webOrderId)) 
           {
             if(!empty($webFormUrl))
             {
@@ -633,8 +542,7 @@ class WidgetController extends AbstractActionController
                   $qb->update('web_order')
                      ->set('data', ':data')->setParameter(':data', json_encode($wo_data), \PDO::PARAM_STR)
                      ->where('id=:id')->setParameter(':id', $row["id"], \PDO::PARAM_INT);
-                  $qb->execute();//занесем в таблицу web_order по номеру заказа занесем ссылку и номер заказа сбербанковский. �­то будет в столбце data
-                }
+                  $qb->execute();
 
                 $this->conn->commit();
                 $success=true;
@@ -1148,9 +1056,9 @@ class WidgetController extends AbstractActionController
       return FALSE;
     }
 
-    $dvf=new \Application\Filter\DataValueFilter();/*в папке /module/application/src/filter есть файл DataValueFilter .*/
-    $data=$this->user->getData();/*В папке module/user/src/entity есть файл-аналог таблицы в бд Usr.php в нем есть геттер getData -получает данные из столбца data таблицы user (это поле можно посмотреть в бд в таблице)*/
-    $webAccess=$dvf->get('profile.webaccess.access',$data);/* метод get в файле /module/application/src/filter/DataValueFilter */
+    $dvf=new \Application\Filter\DataValueFilter();
+    $data=$this->user->getData();
+    $webAccess=$dvf->get('profile.webaccess.access',$data);
     $waLogin=$dvf->get('profile.webaccess.walogin',$data);
     $waPassword=$dvf->get('profile.webaccess.wapassword',$data);
     if ($webAccess !== 'true')
@@ -1289,10 +1197,10 @@ class WidgetController extends AbstractActionController
     $paramsFromRoute=$this->params()->fromRoute();
 
     $data = $this->params()->fromRoute();
-    $token = explode("-",$data["id"]); // 39-665160608
+    $token = explode("-",$data["id"]); 
     if(isset($token[0])&&isset($token[1]))
     {
-      if(empty($token[0]))//токен должен состоять из 2 частей-номер билета и контрольная сумма
+      if(empty($token[0]))
       {
         $this->lastError='Не удается найти номер заказа.'.__FUNCTION__;
         header('Content-type: text/javascript');
@@ -1436,7 +1344,7 @@ class WidgetController extends AbstractActionController
         if ($this->getRequest()->isPost())
         {
             $error = true;
-            $secret = '6Lfek3IUAAAAABdXKMiH8Re4Twl-rXvBAgRuDY8J';
+            $secret = '**';
             $data = $this->params()->fromPost();
             if (!empty($data['g-recaptcha-response'])) {
                $ticket = $this->entityManager->getRepository(\User\Entity\Ticket::class)->findOneBy([
