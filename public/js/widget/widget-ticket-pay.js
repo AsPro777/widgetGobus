@@ -3,7 +3,7 @@ var freeCheck=[];
 var path = location.pathname.split('/');
 var path=path[2];
 
-if(!path||path===undefined) path=130;
+if(!path||path===undefined) path='**';
 var data = {path:path};
 
 var passenger_tarif='';
